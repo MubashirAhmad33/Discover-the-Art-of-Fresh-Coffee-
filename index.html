@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <title>Coffee Website Html CSS.</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar">
+        <a href="#" class="logo">Coffee <span>.</span></a>
+        <ul class="menu-links">
+          <span id="close-menu-btn" class="material-symbols-outlined">
+            close
+          </span>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Testimonial</a></li>
+          <li><a href="#">Skills</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <span id="menu-btn" class="material-symbols-outlined">
+          menu
+        </span>
+      </nav>
+    </header>
+
+    <section class="hero-section">
+      <div class="content">
+        <h1>Start your day with Fresh coffee</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus consequuntur, similique odio nulla omnis dolorum,
+          beatae vel natus repudiandae magni voluptatibus blanditiis autem
+          impedit totam quae? A autem fugiat officiis!
+        </p>
+        <button id="order-now-btn">Order Now</button>
+      </div>
+    </section>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-head">
+          <h4>Modal</h4>
+          <span class="close" id="close-modal-btn">&times;</span>
+        </div>
+        <hr class="line" />
+        <p>
+          There's nothing quite like the aroma of freshly brewed coffee to
+          kickstart your day. Whether you prefer a bold espresso or a creamy
+          latte, our carefully selected beans and expertly crafted brews are
+          sure to tantalize your taste buds and invigorate your senses.
+        </p>
+      </div>
+    </div>
+    <!-- JAVASCRIPT CODE  -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const orderNowBtn = document.getElementById("order-now-btn");
+
+        const header = document.querySelector("header");
+        const menubtn = document.querySelector("#menu-btn");
+        const closebtn = document.querySelector("#close-menu-btn");
+        const modal = document.getElementById("modal");
+        const closeModalBtn = document.getElementById("close-modal-btn");
+
+        menubtn.addEventListener("click", () => {
+          header.classList.toggle("show-mobile-menu");
+        });
+        closebtn.addEventListener("click", () => {
+          menubtn.click("");
+        });
+
+        function displayModal() {
+          modal.style.display = "block";
+        }
+
+        function closeModal() {
+          modal.style.display = "none";
+        }
+
+        orderNowBtn.addEventListener("click", displayModal);
+        closeModalBtn.addEventListener("click", closeModal);
+
+        window.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
